@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya Ankat | Portfolio</title>
+  <meta name="description" content="Personal portfolio website for Arya Ankat." />
+  <style>
+    :root {
+      --cream: #f3eadf;
+      --cream-2: #e9ddd0;
+      --cream-3: #efe6dc;
+      --wine: #7b2d2a;
+      --wine-dark: #5d1f1d;
+      --brown: #7f5d4a;
+      --text: #4a2c25;
+      --muted: #87675a;
+      --line: rgba(123, 45, 42, 0.16);
+      --panel: rgba(255, 250, 244, 0.82);
+      --shadow: 0 18px 42px rgba(70, 33, 28, 0.12);
+      --radius: 28px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 35%),
+        linear-gradient(180deg, var(--cream) 0%, var(--cream-3) 100%);
+      line-height: 1.65;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--wine); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 36px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(243, 234, 223, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--wine-dark);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      padding-bottom: 3px;
+      border-bottom: 1.5px solid transparent;
+    }
+
+    .nav-links a:hover {
+      text-decoration: none;
+      border-color: var(--wine);
+    }
+
+    .hero {
+      padding: 26px 0 30px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 720px;
+      border: 2px solid rgba(74, 44, 37, 0.9);
+      border-radius: 22px;
+      background:
+        linear-gradient(180deg, rgba(245,238,231,0.98), rgba(240,231,221,0.96));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 22px 0;
+      position: relative;
+      z-index: 3;
+    }
+
+    .hero-mini-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-mini-nav a { color: var(--muted); }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: var(--wine);
+      color: #fff6ee;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: 1px solid transparent;
+    }
+
+    .hero-button:hover {
+      text-decoration: none;
+      background: var(--wine-dark);
+    }
+
+    .hero-inner {
+      position: relative;
+      min-height: 680px;
+      padding: 26px 36px 34px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: end;
+    }
+
+    .hero-headline {
+      position: absolute;
+      top: 72px;
+      left: 72px;
+      right: 72px;
+      text-align: center;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-headline h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 0.95;
+      font-weight: 500;
+      color: var(--wine);
+      letter-spacing: -0.03em;
+    }
+
+    .hero-headline h1 em {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .hero-portrait {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(430px, 78vw);
+      height: 560px;
+      border-radius: 24px 24px 0 0;
+      overflow: hidden;
+      z-index: 1;
+      background: linear-gradient(180deg, #cfb09b 0%, #a46756 36%, #7d2d29 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 40px rgba(93, 31, 29, 0.18);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-placeholder {
+      color: rgba(255, 245, 236, 0.95);
+      text-align: center;
+      padding: 28px;
+    }
+
+    .portrait-placeholder strong {
+      display: block;
+      font-size: 1.35rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .portrait-placeholder span {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .hero-side-text {
+      position: absolute;
+      font-size: 1rem;
+      max-width: 180px;
+      line-height: 1.15;
+      text-transform: uppercase;
+      color: var(--text);
+      z-index: 2;
+    }
+
+    .hero-side-left {
+      left: 42px;
+      top: 240px;
+    }
+
+    .hero-side-right {
+      right: 42px;
+      top: 252px;
+      text-align: right;
+    }
+
+    .hero-side-bottom-left {
+      left: 92px;
+      bottom: 150px;
+      max-width: 120px;
+      text-align: center;
+    }
+
+    .hero-cta-small {
+      position: absolute;
+      right: 58px;
+      bottom: 94px;
+      z-index: 2;
+    }
+
+    .hero-cta-small a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 22px;
+      border-radius: 999px;
+      background: var(--wine);
+      color: #fff6ee;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+    }
+
+    .hero-cta-small a:hover {
+      text-decoration: none;
+      background: var(--wine-dark);
+    }
+
+    .hero-note {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 18px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      z-index: 2;
+      background: rgba(255,250,244,0.6);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      color: var(--wine);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.76rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 4.4rem);
+      line-height: 0.95;
+      font-weight: 500;
+      color: var(--wine-dark);
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      color: var(--wine-dark);
+    }
+
+    .section-head p,
+    .soft,
+    .panel p,
+    .timeline-item p,
+    .contact-card p,
+    .project-card p {
+      color: var(--muted);
+    }
+
+    .panel {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .timeline-item + .timeline-item,
+    .resume-box + .resume-box,
+    .interest-box + .interest-box {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .meta {
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-size: 0.94rem;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+
+    li + li { margin-top: 8px; }
+
+    .experience-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 252, 247, 0.72);
+    }
+
+    .resume-link,
+    .text-link {
+      color: var(--wine);
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 12px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-column {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255,250,244,0.75);
+      box-shadow: var(--shadow);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(123, 45, 42, 0.08);
+      border: 1px solid rgba(123, 45, 42, 0.14);
+      color: var(--wine-dark);
+      font-size: 0.92rem;
+    }
+
+    .quote-banner {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0 14px;
+      margin: 24px 0 10px;
+    }
+
+    .quote-banner span {
+      display: inline-block;
+      font-size: clamp(3rem, 8vw, 5.6rem);
+      line-height: 0.9;
+      text-transform: uppercase;
+      color: var(--wine-dark);
+      letter-spacing: -0.05em;
+      padding-right: 36px;
+    }
+
+    .contact-card {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--wine);
+      color: #fff6ee;
+    }
+
+    .btn-primary:hover {
+      text-decoration: none;
+      background: var(--wine-dark);
+    }
+
+    .btn-secondary {
+      border-color: rgba(123, 45, 42, 0.18);
+      color: var(--wine-dark);
+      background: rgba(255,255,255,0.35);
+    }
+
+    .btn-secondary:hover {
+      text-decoration: none;
+      background: rgba(123, 45, 42, 0.06);
+    }
+
+    .footer {
+      padding: 28px 0 42px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    @media (max-width: 980px) {
+      .hero-card {
+        min-height: 820px;
+      }
+
+      .hero-headline {
+        top: 86px;
+        left: 28px;
+        right: 28px;
+      }
+
+      .hero-headline h1 {
+        font-size: clamp(3rem, 12vw, 5.4rem);
+      }
+
+      .hero-side-left,
+      .hero-side-right,
+      .hero-side-bottom-left,
+      .hero-cta-small {
+        position: static;
+        max-width: none;
+        text-align: left;
+        margin-top: 14px;
+      }
+
+      .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-top: 180px;
+      }
+
+      .hero-portrait {
+        position: relative;
+        left: auto;
+        transform: none;
+        bottom: auto;
+        width: min(420px, 88vw);
+        height: 520px;
+      }
+
+      .hero-info-stack {
+        width: 100%;
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
+        z-index: 2;
+      }
+
+      .grid-2,
+      .experience-layout,
+      .skills-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card {
+        min-height: 860px;
+      }
+
+      .hero-note {
+        position: static;
+        transform: none;
+        margin: 18px auto 0;
+        width: fit-content;
+      }
+
+      .panel,
+      .skill-column,
+      .project-card,
+      .contact-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Arya Ankat</div>
+      <div class="nav-links">
+        <a href="#about">About Me</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#beyond">Besides Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-topbar">
+          <div class="brand">Arya Ankat</div>
+          <div class="hero-mini-nav">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <a class="hero-button" href="#contact">Let’s Connect</a>
+        </div>
+
+        <div class="hero-inner">
+          <div class="hero-headline">
+            <h1>HI, <em>I’m</em> ARYA</h1>
+          </div>
+
+          <div class="hero-side-text hero-side-left">[ Add your short identity line here ]</div>
+          <div class="hero-side-text hero-side-right">[ Add another short callout here ]</div>
+          <div class="hero-side-text hero-side-bottom-left">[ Add one quick stat or phrase ]</div>
+          <div class="hero-cta-small"><a href="#about">More About Me</a></div>
+
+          <div class="hero-portrait">
+            <div class="portrait-placeholder">
+              <strong>ADD YOUR PHOTO</strong>
+              <span>Later, replace this box with your portrait so the homepage has the same strong visual feel.</span>
+            </div>
+          </div>
+
+          <div class="hero-note">Warm editorial style with a wine, cream, and brown palette.</div>
+
+          <div class="hero-info-stack"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">About Me</div>
+          <h2>Who I Am</h2>
+          <p>Keep this simple and personal so visitors understand you quickly.</p>
+        </div>
+        <div class="panel">
+          <p class="soft">[ Your about paragraph goes here ]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Education</div>
+          <h2>My Education</h2>
+          <p>List your degree, school, dates, and anything important you want highlighted.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel">
+            <div class="timeline-item">
+              <h3>Degree | School | Dates</h3>
+              <div class="meta">Add subtitle here if needed</div>
+              <p>[ Add 1–2 lines here. ]</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Degree | School | Dates</h3>
+              <div class="meta">Add subtitle here if needed</div>
+              <p>[ Add 1–2 lines here. ]</p>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Notes</h3>
+            <p>[ Use this side box for focus areas, coursework, academic interests, or anything you want people to notice first. ]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Experience</div>
+          <h2>Experience & Projects</h2>
+          <p>Use this section for work, research, projects, and your resume link.</p>
+        </div>
+        <div class="experience-layout">
+          <div class="panel">
+            <div class="timeline-item">
+              <h3>Role | Place | Dates</h3>
+              <ul>
+                <li>[ Bullet point 1 ]</li>
+                <li>[ Bullet point 2 ]</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <h3>Role | Place | Dates</h3>
+              <ul>
+                <li>[ Bullet point 1 ]</li>
+                <li>[ Bullet point 2 ]</li>
+              </ul>
+            </div>
+
+            <div class="section-head" style="margin-top: 26px; margin-bottom: 8px;">
+              <div class="section-kicker">Projects</div>
+              <h3 style="font-size:1.5rem; text-transform:none; letter-spacing:0;">Selected Projects</h3>
+            </div>
+
+            <div class="project-grid">
+              <article class="project-card">
+                <h3>Project Title</h3>
+                <p>[ Project description goes here. ]</p>
+                <a class="text-link" href="#">GitHub Link</a>
+              </article>
+              <article class="project-card">
+                <h3>Project Title</h3>
+                <p>[ Project description goes here. ]</p>
+                <a class="text-link" href="#">GitHub Link</a>
+              </article>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="resume-box">
+              <h3>Resume</h3>
+              <p>[ Add a short line here, such as: View or download my resume below. ]</p>
+              <a class="btn btn-primary" href="#">View Resume</a>
+            </div>
+            <div class="resume-box">
+              <h3>Highlights</h3>
+              <p>[ Add 2–3 quick strengths here. ]</p>
+            </div>
+            <div class="resume-box">
+              <h3>Currently Interested In</h3>
+              <p>[ Add opportunities, roles, or fields you want associated with your name. ]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Skills</div>
+          <h2>What I Bring</h2>
+          <p>Break your skills into categories so they are easy to scan.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-column">
+            <h3>Category 1</h3>
+            <div class="chips">
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+            </div>
+          </div>
+          <div class="skill-column">
+            <h3>Category 2</h3>
+            <div class="chips">
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+            </div>
+          </div>
+          <div class="skill-column">
+            <h3>Category 3</h3>
+            <div class="chips">
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+              <span class="chip">Skill</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quote-banner">
+      <div class="container">
+        <span>MY VALUES</span><span>MY STORY</span><span>MY INTERESTS</span><span>MY VALUES</span>
+      </div>
+    </div>
+
+    <section id="beyond">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Besides Work</div>
+          <h2>Who I Am Beyond Work</h2>
+          <p>This section adds personality so the site feels more like you.</p>
+        </div>
+        <div class="grid-2">
+          <div class="panel">
+            <div class="interest-box">
+              <h3>Interests</h3>
+              <p>[ Add your hobbies, interests, or things you enjoy outside work. ]</p>
+            </div>
+            <div class="interest-box">
+              <h3>What Matters to Me</h3>
+              <p>[ Add a few lines about your values, mindset, or what keeps you grounded. ]</p>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="interest-box">
+              <h3>A Little More About Me</h3>
+              <p>[ Add any personal detail that makes you memorable in a warm but professional way. ]</p>
+            </div>
+            <div class="interest-box">
+              <h3>Fun Facts</h3>
+              <p>[ Add 2–3 light details here if you want. ]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Contact</div>
+          <h2>Let’s Connect</h2>
+          <p>Keep this part simple and direct.</p>
+        </div>
+        <div class="panel contact-card">
+          <h3>Contact Me</h3>
+          <p>Email, LinkedIn, and GitHub can go here once you are ready.</p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:your-email@example.com">Email</a>
+            <a class="btn btn-secondary" href="#">LinkedIn</a>
+            <a class="btn btn-secondary" href="#">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Arya Ankat</div>
+  </footer>
+</body>
+</html>
