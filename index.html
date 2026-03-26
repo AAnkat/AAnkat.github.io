@@ -53,8 +53,8 @@
     }
 
     .nav-inner {
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
       align-items: center;
       gap: 18px;
       padding: 16px 0;
@@ -74,6 +74,7 @@
       font-size: 0.92rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      justify-content: center;
     }
 
     .nav-links a {
@@ -102,28 +103,7 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      padding: 18px 22px 0;
-      position: relative;
-      z-index: 3;
-    }
-
-    .hero-mini-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .hero-mini-nav a { color: var(--muted); }
-
-    .hero-button {
+            .hero-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -549,13 +529,12 @@
 
     @media (max-width: 720px) {
       .nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: 1fr;
+        align-items: start;
       }
 
-      .hero-topbar {
-        flex-direction: column;
-        align-items: flex-start;
+      .nav-links {
+        justify-content: flex-start;
       }
 
       .hero-card {
@@ -583,31 +562,19 @@
     <div class="container nav-inner">
       <div class="brand">Arya Ankat</div>
       <div class="nav-links">
-        <a href="#about">About Me</a>
+        <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#beyond">Besides Work</a>
-        <a href="#contact">Contact</a>
       </div>
+      <a class="hero-button" href="#contact">Let’s Connect</a>
     </div>
   </nav>
 
   <header class="hero">
     <div class="container">
       <div class="hero-card">
-        <div class="hero-topbar">
-          <div class="brand">Arya Ankat</div>
-          <div class="hero-mini-nav">
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#experience">Experience</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-          </div>
-          <a class="hero-button" href="#contact">Let’s Connect</a>
-        </div>
-
         <div class="hero-inner">
           <div class="hero-headline">
             <h1>HI, <em>I’m</em> ARYA</h1>
@@ -619,10 +586,7 @@
           <div class="hero-cta-small"><a href="#about">More About Me</a></div>
 
           <div class="hero-portrait">
-            <div class="portrait-placeholder">
-              <strong>ADD YOUR PHOTO</strong>
-              <span>Later, replace this box with your portrait so the homepage has the same strong visual feel.</span>
-            </div>
+            <img src="image.jpeg" alt="Arya Ankat portrait" />
           </div>
 
           <div class="hero-note">Warm editorial style with a wine, cream, and brown palette.</div>
@@ -638,7 +602,7 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">About Me</div>
-          <h2>Who I Am</h2>
+          <h2>My Story</h2>
           <p>Keep this simple and personal so visitors understand you quickly.</p>
         </div>
         <div class="panel">
@@ -741,7 +705,7 @@
       <div class="container">
         <div class="section-head">
           <div class="section-kicker">Skills</div>
-          <h2>What I Bring</h2>
+          <h2>What I Bring to the Table</h2>
           <p>Break your skills into categories so they are easy to scan.</p>
         </div>
         <div class="skills-grid">
@@ -775,12 +739,6 @@
         </div>
       </div>
     </section>
-
-    <div class="quote-banner">
-      <div class="container">
-        <span>MY VALUES</span><span>MY STORY</span><span>MY INTERESTS</span><span>MY VALUES</span>
-      </div>
-    </div>
 
     <section id="beyond">
       <div class="container">
