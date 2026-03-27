@@ -22,21 +22,37 @@
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,0.55), transparent 35%),
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.55), transparent 35%),
         linear-gradient(180deg, var(--cream) 0%, var(--cream-3) 100%);
       line-height: 1.65;
     }
 
-    img { max-width: 100%; display: block; }
-    a { color: var(--wine); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--wine);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     .container {
       width: min(calc(100% - 36px), var(--max));
@@ -98,12 +114,11 @@
       min-height: 720px;
       border: 2px solid rgba(74, 44, 37, 0.9);
       border-radius: 22px;
-      background:
-        linear-gradient(180deg, rgba(245,238,231,0.98), rgba(240,231,221,0.96));
+      background: linear-gradient(180deg, rgba(245, 238, 231, 0.98), rgba(240, 231, 221, 0.96));
       box-shadow: var(--shadow);
     }
 
-            .hero-button {
+    .hero-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -179,24 +194,6 @@
       object-fit: cover;
     }
 
-    .portrait-placeholder {
-      color: rgba(255, 245, 236, 0.95);
-      text-align: center;
-      padding: 28px;
-    }
-
-    .portrait-placeholder strong {
-      display: block;
-      font-size: 1.35rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 10px;
-    }
-
-    .portrait-placeholder span {
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
     .hero-side-text {
       position: absolute;
       font-size: 1rem;
@@ -259,7 +256,7 @@
       color: var(--muted);
       font-size: 0.88rem;
       z-index: 2;
-      background: rgba(255,250,244,0.6);
+      background: rgba(255, 250, 244, 0.6);
       padding: 6px 12px;
       border-radius: 999px;
     }
@@ -338,7 +335,9 @@
       padding: 0;
     }
 
-    li + li { margin-top: 8px; }
+    li + li {
+      margin-top: 8px;
+    }
 
     .experience-layout {
       display: grid;
@@ -378,7 +377,7 @@
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: rgba(255,250,244,0.75);
+      background: rgba(255, 250, 244, 0.75);
       box-shadow: var(--shadow);
     }
 
@@ -396,25 +395,6 @@
       border: 1px solid rgba(123, 45, 42, 0.14);
       color: var(--wine-dark);
       font-size: 0.92rem;
-    }
-
-    .quote-banner {
-      overflow: hidden;
-      white-space: nowrap;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 18px 0 14px;
-      margin: 24px 0 10px;
-    }
-
-    .quote-banner span {
-      display: inline-block;
-      font-size: clamp(3rem, 8vw, 5.6rem);
-      line-height: 0.9;
-      text-transform: uppercase;
-      color: var(--wine-dark);
-      letter-spacing: -0.05em;
-      padding-right: 36px;
     }
 
     .contact-card {
@@ -454,7 +434,7 @@
     .btn-secondary {
       border-color: rgba(123, 45, 42, 0.18);
       color: var(--wine-dark);
-      background: rgba(255,255,255,0.35);
+      background: rgba(255, 255, 255, 0.35);
     }
 
     .btn-secondary:hover {
@@ -580,16 +560,18 @@
             <h1>HI, <em>I’m</em> ARYA</h1>
           </div>
 
-          <div class="hero-side-text hero-side-left">[ Add your short identity line here ]</div>
-          <div class="hero-side-text hero-side-right">[ Add another short callout here ]</div>
-          <div class="hero-side-text hero-side-bottom-left">[ Add one quick stat or phrase ]</div>
-          <div class="hero-cta-small"><a href="#about">More About Me</a></div>
+          <div class="hero-side-text hero-side-left">I'm a VLSI design engineer and an amateur baker.</div>
+          <div class="hero-side-text hero-side-right">Also, a PhD student at UC Riverside.</div>
+          <div class="hero-side-text hero-side-bottom-left">"The most personal is the most creative"</div>
+          <div class="hero-cta-small">
+            <a href="#about">Know More About Me</a>
+          </div>
 
           <div class="hero-portrait">
             <img src="image.jpeg" alt="Arya Ankat portrait" />
           </div>
 
-          <div class="hero-note">Warm editorial style with a wine, cream, and brown palette.</div>
+          <div class="hero-note">Circa'25, Riverside.</div>
 
           <div class="hero-info-stack"></div>
         </div>
@@ -603,10 +585,16 @@
         <div class="section-head">
           <div class="section-kicker">About Me</div>
           <h2>My Story</h2>
-          <p>Keep this simple and personal so visitors understand you quickly.</p>
+          <!--
+          <p>Hello, I’m Arya Ankat, a first-year PhD student in Electrical Engineering at the University of California, Riverside. I began my graduate journey at UCR in Fall 2023 as a master’s student, where I built a strong foundation in VLSI design and circuit reliability. During my master’s, I worked on processor design and studied the impact of aging on circuits by analyzing changes in power density and thermal maps before and after aging. To capture long-term reliability effects, we evaluated a worst-case aging scenario of 10 years. Building on that experience, my PhD work has expanded toward the software side of hardware design. I am currently working on machine learning for hardware, where I developed an agentic flow that can generate hardware code and automate the design flow from RTL-to-GDS.
+          </p>
+          -->
         </div>
+
         <div class="panel">
-          <p class="soft">[ Your about paragraph goes here ]</p>
+          <p class="soft">
+            Hello, I’m Arya Ankat, a first-year PhD student in Electrical Engineering at UC Riverside. I began my graduate journey at UCR in Fall 2023 as a master’s student, where I built a strong foundation in VLSI design and circuit reliability. During my master’s, I worked on processor design and studied the impact of aging on circuits by analyzing changes in power density and thermal maps before and after aging. To capture long-term reliability effects, we evaluated a worst-case aging scenario of 10 years. Building on that experience, my PhD work has expanded toward the software side of hardware design. I am currently working on machine learning for hardware, where I developed an agentic flow that can generate hardware code and automate the design flow from RTL-to-GDS.
+          </p>
         </div>
       </div>
     </section>
@@ -616,29 +604,26 @@
         <div class="section-head">
           <div class="section-kicker">Education</div>
           <h2>My Education</h2>
-          <p>My academic background spans VLSI design, computer architecture, GPU programming, and machine learning.</p>
+          <p>My academic background spans across VLSI design, computer architecture, reliability, and machine learning.</p>
         </div>
-        <div class="grid-2">
-          <div class="panel">
-            <div class="timeline-item">
-              <h3>PhD in Electrical Engineering | University of California, Riverside | Sep 2025 – Present</h3>
-              <div class="meta">Advisor: Dr. Sheldon Tan | GPA: 3.55/4.0</div>
-              <p>Coursework includes Reinforcement Learning, Real-Time Embedded Systems, and Semiconductors &amp; Nanostructures.</p>
-            </div>
-            <div class="timeline-item">
-              <h3>M.S. in Electrical Engineering | University of California, Riverside | Sep 2023 – Aug 2025</h3>
-              <div class="meta">Thesis Advisor: Dr. Sheldon Tan | GPA: 3.54/4.0</div>
-              <p>Coursework included Computer Architecture, GPU Programming, Advanced Computer Vision, Machine Learning, and Advanced Operating Systems.</p>
-            </div>
-            <div class="timeline-item">
-              <h3>B.Tech (Integrated) in Electronics and Telecommunications | Mukesh Patel School of Technology Management &amp; Engineering | Jul 2017 – May 2023</h3>
-              <div class="meta">GPA: 3.91/4.0</div>
-              <p>Built a strong foundation in electronics, digital systems, and core engineering fundamentals.</p>
-            </div>
+
+        <div class="panel">
+          <div class="timeline-item">
+            <h3>PhD in Electrical Engineering | University of California, Riverside | Sep 2025 – Present</h3>
+            <div class="meta">Advisor: Dr. Sheldon Tan | GPA: 3.55/4.0</div>
+            <p>Coursework: Introduction to Reinforcement Learning, Real-Time Embedded Systems, and Semiconductors &amp; Nanostructures.</p>
           </div>
-          <div class="panel">
-            <h3>Focus Areas</h3>
-            <p>I am especially interested in VLSI physical design, hardware-software co-design, GPU architecture, parallel computing, and AI-assisted EDA workflows.</p>
+
+          <div class="timeline-item">
+            <h3>M.S. in Electrical Engineering | University of California, Riverside | Sep 2023 – Aug 2025</h3>
+            <div class="meta">Thesis Advisor: Dr. Sheldon Tan | GPA: 3.54/4.0</div>
+            <p>Coursework: Computer-Aided Electronic Circuit Simulation, Graphic Programming Unit (GPU), Advanced Computer Vision, and Computer Architecture.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>B.Tech (Integrated) in Electronics and Telecommunications | Mukesh Patel School of Technology Management &amp; Engineering | Jul 2017 – May 2023</h3>
+            <div class="meta">GPA: 3.91/4.0</div>
+            <p>Built a strong foundation in electronics, digital systems, and core engineering fundamentals.</p>
           </div>
         </div>
       </div>
@@ -651,6 +636,7 @@
           <h2>Experience &amp; Projects</h2>
           <p>My experience includes research in automated SoC design, processor reliability, teaching, and hands-on hardware implementation.</p>
         </div>
+
         <div class="experience-layout">
           <div class="panel">
             <div class="timeline-item">
@@ -660,6 +646,7 @@
                 <li>Automated the RTL-to-GDS flow through Synopsys Fusion Compiler with Gemini-based agent orchestration, and explored GPU-aware physical design as a future research direction.</li>
               </ul>
             </div>
+
             <div class="timeline-item">
               <h3>Graduate Student Researcher (M.S. Thesis) | VSC-Lab, UC Riverside | Sep 2023 – Aug 2025</h3>
               <ul>
@@ -667,6 +654,7 @@
                 <li>Studied BTI and HCI aging effects by comparing aged and non-aged standard-cell libraries across dual-RAM and ARM Cortex-M0 circuits.</li>
               </ul>
             </div>
+
             <div class="timeline-item">
               <h3>Teaching Assistant | General Chemistry Lab, UC Riverside | Apr 2024 – Jun 2025</h3>
               <ul>
@@ -674,6 +662,7 @@
                 <li>Supported student learning across multiple quarters through consistent instructional and lab guidance.</li>
               </ul>
             </div>
+
             <div class="timeline-item">
               <h3>Academic Reader | ENGR/HIST 108, UC Riverside | Sep 2023 – Mar 2024</h3>
               <ul>
@@ -684,7 +673,7 @@
 
             <div class="section-head" style="margin-top: 26px; margin-bottom: 8px;">
               <div class="section-kicker">Projects</div>
-              <h3 style="font-size:1.5rem; text-transform:none; letter-spacing:0;">Selected Projects</h3>
+              <h3 style="font-size: 1.5rem; text-transform: none; letter-spacing: 0;">Selected Projects</h3>
             </div>
 
             <div class="project-grid">
@@ -693,11 +682,13 @@
                 <p>Built a 7nm FinFET thermal RC network in HSPICE and analyzed threshold voltage shift and subthreshold slope degradation under self-heating at fixed supply voltage.</p>
                 <a class="text-link" href="#">GitHub Link</a>
               </article>
+
               <article class="project-card">
                 <h3>TENT: Test-Time Entropy Minimization</h3>
                 <p>Reproduced and evaluated TENT-based test-time adaptation in PyTorch for domain-shift benchmarks by minimizing entropy on unseen target data without retraining.</p>
                 <a class="text-link" href="#">GitHub Link</a>
               </article>
+
               <article class="project-card">
                 <h3>Obstacle Detection for Autonomous Vehicles via Sensor Fusion</h3>
                 <p>Developed a real-time obstacle detection pipeline using LiDAR and ESP32-CAM sensor fusion for autonomous vehicle path planning.</p>
@@ -712,10 +703,12 @@
               <p>[ Add a short line here, such as: View or download my resume below. ]</p>
               <a class="btn btn-primary" href="#">View Resume</a>
             </div>
+
             <div class="resume-box">
               <h3>Highlights</h3>
               <p>VLSI physical design, GPU and parallel computing, RISC-V processor design, reliability analysis, and AI-assisted EDA automation.</p>
             </div>
+
             <div class="resume-box">
               <h3>Currently Interested In</h3>
               <p>GPU architecture, parallel computing, hardware-software co-design, and next-generation SoC design workflows.</p>
@@ -732,6 +725,7 @@
           <h2>What I Bring to the Table</h2>
           <p>Break your skills into categories so they are easy to scan.</p>
         </div>
+
         <div class="skills-grid">
           <div class="skill-column">
             <h3>GPU, Hardware &amp; VLSI</h3>
@@ -748,6 +742,7 @@
               <span class="chip">RC Extraction</span>
             </div>
           </div>
+
           <div class="skill-column">
             <h3>Tools &amp; Programming</h3>
             <div class="chips">
@@ -767,6 +762,7 @@
               <span class="chip">HSPICE</span>
             </div>
           </div>
+
           <div class="skill-column">
             <h3>AI, ML &amp; Reliability</h3>
             <div class="chips">
@@ -792,22 +788,26 @@
           <h2>Who I Am Beyond Work</h2>
           <p>This section adds personality so the site feels more like you.</p>
         </div>
+
         <div class="grid-2">
           <div class="panel">
             <div class="interest-box">
               <h3>Interests</h3>
               <p>[ Add your hobbies, interests, or things you enjoy outside work. ]</p>
             </div>
+
             <div class="interest-box">
               <h3>What Matters to Me</h3>
               <p>[ Add a few lines about your values, mindset, or what keeps you grounded. ]</p>
             </div>
           </div>
+
           <div class="panel">
             <div class="interest-box">
               <h3>A Little More About Me</h3>
               <p>[ Add any personal detail that makes you memorable in a warm but professional way. ]</p>
             </div>
+
             <div class="interest-box">
               <h3>Fun Facts</h3>
               <p>[ Add 2–3 light details here if you want. ]</p>
@@ -824,6 +824,7 @@
           <h2>Let’s Connect</h2>
           <p>Keep this part simple and direct.</p>
         </div>
+
         <div class="panel contact-card">
           <h3>Contact Me</h3>
           <p>Email, LinkedIn, and GitHub can go here once you are ready.</p>
