@@ -5,66 +5,65 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arya Ankat | Portfolio</title>
   <meta name="description" content="Personal portfolio website for Arya Ankat." />
-<style>
-  :root {
-    --cream: #f1e6da;
-    --cream-2: #e7d8c8;
-    --cream-3: #eadfd3;
-    --wine: #7b2d2a;
-    --wine-dark: #5d1f1d;
-    --brown: #7f5d4a;
-    --text: #4a2c25;
-    --muted: #87675a;
-    --line: rgba(123, 45, 42, 0.18);
-    --panel: rgba(255, 250, 244, 0.9);
-    --shadow: 0 22px 48px rgba(70, 33, 28, 0.16);
-    --shadow-soft: 0 12px 24px rgba(70, 33, 28, 0.12);
-    --radius: 28px;
-    --max: 1160px;
-    --sage: #7a8268;
-    --sage-dark: #69715a;
-    --sage-deep: #5a614d;
-  }
+  <style>
+    :root {
+      --cream: #f1e6da;
+      --cream-2: #e7d8c8;
+      --cream-3: #eadfd3;
+      --wine: #7b2d2a;
+      --wine-dark: #5d1f1d;
+      --brown: #7f5d4a;
+      --text: #4a2c25;
+      --muted: #87675a;
+      --line: rgba(123, 45, 42, 0.18);
+      --panel: rgba(255, 250, 244, 0.9);
+      --shadow: 0 22px 48px rgba(70, 33, 28, 0.16);
+      --shadow-soft: 0 12px 24px rgba(70, 33, 28, 0.12);
+      --radius: 28px;
+      --max: 1160px;
+      --sage: #7a8268;
+      --sage-dark: #69715a;
+      --sage-deep: #5a614d;
+    }
 
-  * {
-    box-sizing: border-box;
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  html {
-    scroll-behavior: smooth;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    color: var(--text);
-    background:
-      radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 35%),
-      linear-gradient(180deg, #f1e6da 0%, #e9ddd0 100%);
-    line-height: 1.65;
-    position: relative;
-    overflow-x: hidden;
-  }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.45), transparent 35%),
+        linear-gradient(180deg, #f1e6da 0%, #e9ddd0 100%);
+      line-height: 1.65;
+      position: relative;
+      overflow-x: hidden;
+    }
 
-  body::after {
-    content: "";
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 300px;
-    background:
-      linear-gradient(115deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 18%, transparent 19%, transparent 36%, rgba(0, 0, 0, 0.07) 37%, rgba(0, 0, 0, 0.02) 52%, transparent 53%),
-      radial-gradient(140% 120% at 18% 100%, rgba(122, 130, 104, 0.88) 0%, rgba(122, 130, 104, 0.88) 28%, transparent 29%),
-      radial-gradient(120% 120% at 50% 100%, rgba(105, 113, 90, 0.92) 0%, rgba(105, 113, 90, 0.92) 30%, transparent 31%),
-      radial-gradient(135% 120% at 84% 100%, rgba(90, 97, 77, 0.9) 0%, rgba(90, 97, 77, 0.9) 28%, transparent 29%),
-      linear-gradient(180deg, rgba(136, 144, 118, 0.08) 0%, rgba(94, 101, 81, 0.72) 62%, rgba(78, 84, 67, 0.96) 100%);
-    opacity: 0.96;
-    pointer-events: none;
-    z-index: -1;
-  }
-</style>
-  
+    body::after {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 300px;
+      background:
+        linear-gradient(115deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 18%, transparent 19%, transparent 36%, rgba(0, 0, 0, 0.07) 37%, rgba(0, 0, 0, 0.02) 52%, transparent 53%),
+        radial-gradient(140% 120% at 18% 100%, rgba(122, 130, 104, 0.88) 0%, rgba(122, 130, 104, 0.88) 28%, transparent 29%),
+        radial-gradient(120% 120% at 50% 100%, rgba(105, 113, 90, 0.92) 0%, rgba(105, 113, 90, 0.92) 30%, transparent 31%),
+        radial-gradient(135% 120% at 84% 100%, rgba(90, 97, 77, 0.9) 0%, rgba(90, 97, 77, 0.9) 28%, transparent 29%),
+        linear-gradient(180deg, rgba(136, 144, 118, 0.08) 0%, rgba(94, 101, 81, 0.72) 62%, rgba(78, 84, 67, 0.96) 100%);
+      opacity: 0.96;
+      pointer-events: none;
+      z-index: -1;
+    }
+
     img {
       max-width: 100%;
       display: block;
@@ -88,7 +87,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(241, 230, 218, 0.9);
+      background: rgba(241, 230, 218, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
     }
@@ -355,8 +354,7 @@
     }
 
     .timeline-item + .timeline-item,
-    .resume-box + .resume-box,
-    .interest-box + .interest-box {
+    .resume-box + .resume-box {
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid var(--line);
@@ -636,7 +634,7 @@
       min-height: 200px;
       border-radius: 20px;
       border: 1px dashed rgba(123, 45, 42, 0.28);
-      background: linear-gradient(180deg, rgba(241,230,218,0.9), rgba(231,216,200,0.95));
+      background: linear-gradient(180deg, rgba(241, 230, 218, 0.9), rgba(231, 216, 200, 0.95));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1009,9 +1007,7 @@
     <div class="modal-card">
       <button class="modal-close" id="modalClose">&times;</button>
       <h3 class="modal-title" id="modalTitle">Hobby</h3>
-      <div class="hobby-description" id="modalDescription">
-        [ Write here about how you got into this hobby. ]
-      </div>
+      <div class="hobby-description" id="modalDescription">[ Write here about how you got into this hobby. ]</div>
       <div class="hobby-photo-grid" id="modalPhotos">
         <div class="hobby-photo">Add photo here</div>
         <div class="hobby-photo">Add photo here</div>
