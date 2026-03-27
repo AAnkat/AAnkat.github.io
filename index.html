@@ -15,9 +15,10 @@
       --brown: #7f5d4a;
       --text: #4a2c25;
       --muted: #87675a;
-      --line: rgba(123, 45, 42, 0.16);
-      --panel: rgba(255, 250, 244, 0.82);
-      --shadow: 0 18px 42px rgba(70, 33, 28, 0.12);
+      --line: rgba(123, 45, 42, 0.18);
+      --panel: rgba(255, 250, 244, 0.88);
+      --shadow: 0 22px 48px rgba(70, 33, 28, 0.16);
+      --shadow-soft: 0 12px 24px rgba(70, 33, 28, 0.12);
       --radius: 28px;
       --max: 1160px;
     }
@@ -140,7 +141,7 @@
       text-decoration: none;
       background: var(--wine-dark);
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 22px rgba(93, 31, 29, 0.22);
+      box-shadow: 0 12px 24px rgba(93, 31, 29, 0.24);
     }
 
     .hero-inner {
@@ -174,9 +175,7 @@
     .hero-headline h1 em {
       font-style: italic;
       font-weight: 400;
-      display: inline-block;
-      transform: skewX(-10deg);
-      letter-spacing: -0.04em;
+      letter-spacing: -0.03em;
     }
 
     .hero-portrait {
@@ -193,7 +192,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 16px 40px rgba(93, 31, 29, 0.18);
+      box-shadow: 0 18px 42px rgba(93, 31, 29, 0.22);
     }
 
     .hero-portrait img {
@@ -256,7 +255,7 @@
       text-decoration: none;
       background: var(--wine-dark);
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 22px rgba(93, 31, 29, 0.22);
+      box-shadow: 0 12px 24px rgba(93, 31, 29, 0.24);
     }
 
     .hero-note {
@@ -267,7 +266,7 @@
       color: var(--muted);
       font-size: 0.88rem;
       z-index: 2;
-      background: rgba(255, 250, 244, 0.6);
+      background: rgba(255, 250, 244, 0.65);
       padding: 6px 12px;
       border-radius: 999px;
     }
@@ -318,6 +317,12 @@
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .panel:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(70, 33, 28, 0.15);
     }
 
     .timeline-item + .timeline-item,
@@ -359,39 +364,78 @@
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: rgba(255, 250, 244, 0.75);
-      box-shadow: var(--shadow);
+      background: rgba(255, 250, 244, 0.82);
+      box-shadow: var(--shadow-soft);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
     .skill-column:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(93, 31, 29, 0.14);
+      box-shadow: 0 16px 30px rgba(93, 31, 29, 0.16);
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 12px;
       margin-top: 14px;
     }
 
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(123, 45, 42, 0.08);
-      border: 1px solid rgba(123, 45, 42, 0.14);
-      color: var(--wine-dark);
-      font-size: 0.92rem;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
-      cursor: default;
+    .skill-flip {
+      width: 122px;
+      height: 54px;
+      perspective: 900px;
+      cursor: pointer;
     }
 
-    .chip:hover {
+    .skill-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+      transform-style: preserve-3d;
+    }
+
+    .skill-flip.flipped .skill-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .skill-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      line-height: 1.2;
+      border: 1px solid rgba(123, 45, 42, 0.16);
+      box-shadow: 0 8px 18px rgba(93, 31, 29, 0.08);
+    }
+
+    .skill-front {
+      background: rgba(123, 45, 42, 0.08);
+      color: var(--wine-dark);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+    }
+
+    .skill-flip:hover .skill-front {
       transform: translateY(-6px) scale(1.05);
       background: rgba(123, 45, 42, 0.16);
-      border-color: rgba(123, 45, 42, 0.32);
-      box-shadow: 0 10px 20px rgba(93, 31, 29, 0.16);
+      border-color: rgba(123, 45, 42, 0.3);
+      box-shadow: 0 12px 22px rgba(93, 31, 29, 0.15);
+    }
+
+    .skill-back {
+      background: var(--wine);
+      color: #fff6ee;
+      transform: rotateY(180deg);
+      font-size: 0.74rem;
+      padding: 8px 10px;
     }
 
     .grid-2 {
@@ -426,7 +470,7 @@
 
     .btn:hover {
       transform: translateY(-3px) scale(1.03);
-      box-shadow: 0 10px 22px rgba(93, 31, 29, 0.18);
+      box-shadow: 0 12px 24px rgba(93, 31, 29, 0.18);
       text-decoration: none;
     }
 
@@ -437,17 +481,6 @@
 
     .btn-primary:hover {
       background: var(--wine-dark);
-    }
-
-    .btn-secondary {
-      border-color: rgba(123, 45, 42, 0.18);
-      color: var(--wine-dark);
-      background: rgba(255, 255, 255, 0.35);
-    }
-
-    .btn-secondary:hover {
-      background: rgba(123, 45, 42, 0.08);
-      border-color: rgba(123, 45, 42, 0.3);
     }
 
     .footer {
@@ -539,6 +572,10 @@
       .skill-column,
       .contact-card {
         padding: 22px;
+      }
+
+      .skill-flip {
+        width: 118px;
       }
     }
   </style>
@@ -701,58 +738,58 @@
         <div class="section-head">
           <div class="section-kicker">Skills</div>
           <h2>What I Bring to the Table</h2>
-          <p>Break your skills into categories so they are easy to scan.</p>
+          <p>Click on a skill to flip it and add a note about where you used it.</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-column">
             <h3>GPU, Hardware &amp; VLSI</h3>
             <div class="chips">
-              <span class="chip">CUDA</span>
-              <span class="chip">GPU Architecture</span>
-              <span class="chip">Parallel Programming</span>
-              <span class="chip">RISC-V</span>
-              <span class="chip">RTL Synthesis</span>
-              <span class="chip">Place &amp; Route</span>
-              <span class="chip">Floor Planning</span>
-              <span class="chip">Timing / Power Analysis</span>
-              <span class="chip">DRC / LVS</span>
-              <span class="chip">RC Extraction</span>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">CUDA</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">GPU Architecture</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Parallel Programming</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RISC-V</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RTL Synthesis</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Place &amp; Route</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Floor Planning</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Timing / Power</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">DRC / LVS</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RC Extraction</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
             </div>
           </div>
 
           <div class="skill-column">
             <h3>Tools &amp; Programming</h3>
             <div class="chips">
-              <span class="chip">Python</span>
-              <span class="chip">Verilog</span>
-              <span class="chip">VHDL</span>
-              <span class="chip">Tcl</span>
-              <span class="chip">C</span>
-              <span class="chip">SPICE</span>
-              <span class="chip">Linux Shell</span>
-              <span class="chip">Synopsys DC</span>
-              <span class="chip">ICC</span>
-              <span class="chip">Fusion Compiler</span>
-              <span class="chip">PrimeTime</span>
-              <span class="chip">Cadence Innovus</span>
-              <span class="chip">Virtuoso</span>
-              <span class="chip">HSPICE</span>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Python</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Verilog</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">VHDL</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Tcl</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">C</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">SPICE</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Linux Shell</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Synopsys DC</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">ICC</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Fusion Compiler</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">PrimeTime</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Cadence Innovus</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Virtuoso</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">HSPICE</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
             </div>
           </div>
 
           <div class="skill-column">
             <h3>AI, ML &amp; Reliability</h3>
             <div class="chips">
-              <span class="chip">LLM Agents</span>
-              <span class="chip">RAG / HRAG</span>
-              <span class="chip">Reinforcement Learning</span>
-              <span class="chip">Computer Vision</span>
-              <span class="chip">PyTorch</span>
-              <span class="chip">BTI / HCI Aging</span>
-              <span class="chip">Electromigration</span>
-              <span class="chip">Thermal Analysis</span>
-              <span class="chip">2.5D / 3D Integration</span>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">LLM Agents</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RAG / HRAG</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Reinforcement Learning</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Computer Vision</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">PyTorch</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">BTI / HCI Aging</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Electromigration</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Thermal Analysis</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">2.5D / 3D Integration</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
             </div>
           </div>
         </div>
@@ -808,8 +845,8 @@
           <p>Email, LinkedIn, and GitHub can go here once you are ready.</p>
           <div class="contact-links">
             <a class="btn btn-primary" href="mailto:your-email@example.com">Email</a>
-            <a class="btn btn-secondary" href="#">LinkedIn</a>
-            <a class="btn btn-secondary" href="#">GitHub</a>
+            <a class="btn btn-primary" href="#">LinkedIn</a>
+            <a class="btn btn-primary" href="#">GitHub</a>
           </div>
         </div>
       </div>
@@ -817,7 +854,15 @@
   </main>
 
   <footer class="footer">
-    <div class="container">© 2026 Arya Ankat</div>
+    <div class="container">© 2026 Arya Ankat · Last edited: March 2026</div>
   </footer>
+
+  <script>
+    document.querySelectorAll('.skill-flip').forEach((card) => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
+  </script>
 </body>
 </html>
