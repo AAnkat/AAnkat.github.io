@@ -631,26 +631,48 @@
     .placard-enlarged {
       position: fixed;
       inset: 0;
-      background: rgba(55, 15, 13, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: rgba(55, 15, 13, 0.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 1100;
-      cursor: zoom-out;
     }
 
     .placard-enlarged .placard {
-      width: min(344px, 88vw);
-      height: min(460px, 80vh);
+      width: min(580px, 90vw);
+      height: min(78vh, 820px);
       cursor: default;
       pointer-events: none;
     }
 
-    .placard-enlarged .placard .placard-flip-inner,
     .placard-enlarged .placard .placard-inner {
       pointer-events: none;
+    }
+
+    .placard-enlarged-close {
+      position: fixed;
+      top: 22px;
+      right: 26px;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 999px;
+      background: var(--wine);
+      color: #fff6ee;
+      font-size: 1.4rem;
+      cursor: pointer;
+      z-index: 1101;
+      transition: transform 0.18s ease, background 0.18s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .placard-enlarged-close:hover {
+      transform: scale(1.08);
+      background: var(--wine-dark);
     }
 
     #beyondModal .hobby-section-title {
@@ -952,11 +974,11 @@
 
           <div class="hero-side-text hero-side-left">I'm a VLSI design engineer and an amateur baker.</div>
           <div class="hero-side-text hero-side-right">
-            <span style="font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); display:block; margin-bottom:6px;">CURRENTLY</span>
-            PhD Researcher<br>UC Riverside<br>
-            <span style="font-size:0.85rem; color:var(--muted); margin-top:4px; display:block;">AI-driven RTL-to-GDS automation</span>
+            <span style="font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); display:block; margin-bottom:6px;">CURRENTLY:</span>
+            PhD student at<br>UC Riverside<br>
+            <span style="font-size:0.85rem; color:var(--muted); margin-top:4px; display:block;">working on agentic flow for code generation-to-GDS automation</span>
           </div>
-          <div class="hero-side-text hero-side-bottom-left">"The most personal is the most creative"</div>
+          <div class="hero-side-text hero-side-bottom-left">"The most personal is the most creative"~ Martin Scorsese</div>
 
           <div class="hero-cta-small">
             <a href="#about">Know More About Me</a>
@@ -1243,23 +1265,32 @@
     });
 
     document.querySelectorAll('.placard').forEach((card) => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-
-        // For writings & drawings: also show enlarged overlay
-        if (card.dataset.enlarge === 'true') {
+      if (card.dataset.enlarge === 'true') {
+        // Writings & Drawings: click opens enlarged overlay, never flips the small card
+        card.addEventListener('click', () => {
           const overlay = document.createElement('div');
           overlay.className = 'placard-enlarged';
 
           const clone = card.cloneNode(true);
-          // Always show flipped (back) side in the enlarged view
-          clone.classList.add('flipped');
+          clone.classList.add('flipped'); // show image side in overlay
+          clone.removeAttribute('data-enlarge'); // prevent nested behaviour
           overlay.appendChild(clone);
 
-          overlay.addEventListener('click', () => overlay.remove());
+          const closeBtn = document.createElement('button');
+          closeBtn.className = 'placard-enlarged-close';
+          closeBtn.innerHTML = '&times;';
+          closeBtn.setAttribute('aria-label', 'Close');
+          closeBtn.addEventListener('click', () => overlay.remove());
+          overlay.appendChild(closeBtn);
+
           document.body.appendChild(overlay);
-        }
-      });
+        });
+      } else {
+        // Baking: normal flip toggle
+        card.addEventListener('click', () => {
+          card.classList.toggle('flipped');
+        });
+      }
     });
 
     // Close beyond modal when clicking the backdrop
