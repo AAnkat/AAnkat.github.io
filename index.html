@@ -647,6 +647,11 @@
       pointer-events: none;
     }
 
+    .placard-enlarged.small .placard {
+      width: min(344px, 88vw);
+      height: min(460px, 80vh);
+    }
+
     .placard-enlarged .placard .placard-inner {
       pointer-events: none;
     }
@@ -1232,9 +1237,9 @@
         </div>
         <div class="placard-grid">
           <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Kafan</span><small>Published in our college magazine. Writing on 26/11 was quite personal as I grew up in Mumbai.</small></div><div class="placard-face placard-back"><img src="Writings/Writing_verve.png" alt="Verve" /><span class="placard-circa">Circa May '21</span></div></div></div>
-          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>The In-Between</span></div><div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div></div></div>
-          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>What is Reality?</span></div><div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div></div></div>
-          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Too much Love kills you</span></div><div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+          <div class="placard" data-enlarge="true" data-enlarge-small="true"><div class="placard-inner"><div class="placard-face placard-front"><span>The In-Between</span></div><div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div></div></div>
+          <div class="placard" data-enlarge="true" data-enlarge-small="true"><div class="placard-inner"><div class="placard-face placard-front"><span>What is Reality?</span></div><div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div></div></div>
+          <div class="placard" data-enlarge="true" data-enlarge-small="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Too much Love kills you</span></div><div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
         </div>
       </div>
 
@@ -1246,7 +1251,7 @@
         </div>
         <div class="placard-grid">
           <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Creation of Adam · Hands</span><small>Inspired by Michelangelo's <em>Creation of Adam</em> — one of my favourite works of all time.</small></div><div class="placard-face placard-back"><img src="Drawings/Creatin of Adam-Hands.jpeg" alt="Creation of Adam - Hands" /><span class="placard-circa">Circa Jun '25</span></div></div></div>
-          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Katan</span></div><div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+          <div class="placard" data-enlarge="true" data-enlarge-small="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Katana</span></div><div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
         </div>
       </div>
     </div>
@@ -1269,7 +1274,7 @@
         // Writings & Drawings: click opens enlarged overlay, never flips the small card
         card.addEventListener('click', () => {
           const overlay = document.createElement('div');
-          overlay.className = 'placard-enlarged';
+          overlay.className = 'placard-enlarged' + (card.dataset.enlargeSmall === 'true' ? ' small' : '');
 
           const clone = card.cloneNode(true);
           clone.classList.add('flipped'); // show image side in overlay
