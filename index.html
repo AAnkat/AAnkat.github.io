@@ -46,23 +46,6 @@
       overflow-x: hidden;
     }
 
-    body::after {
-      content: "";
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 300px;
-      background:
-        linear-gradient(115deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.02) 18%, transparent 19%, transparent 36%, rgba(0, 0, 0, 0.07) 37%, rgba(0, 0, 0, 0.02) 52%, transparent 53%),
-        radial-gradient(140% 120% at 18% 100%, rgba(122, 130, 104, 0.88) 0%, rgba(122, 130, 104, 0.88) 28%, transparent 29%),
-        radial-gradient(120% 120% at 50% 100%, rgba(105, 113, 90, 0.92) 0%, rgba(105, 113, 90, 0.92) 30%, transparent 31%),
-        radial-gradient(135% 120% at 84% 100%, rgba(90, 97, 77, 0.9) 0%, rgba(90, 97, 77, 0.9) 28%, transparent 29%),
-        linear-gradient(180deg, rgba(136, 144, 118, 0.08) 0%, rgba(94, 101, 81, 0.72) 62%, rgba(78, 84, 67, 0.96) 100%);
-      opacity: 0.96;
-      pointer-events: none;
-      z-index: -1;
-    }
 
     img {
       max-width: 100%;
@@ -394,6 +377,7 @@
       background: rgba(255, 250, 244, 0.82);
       box-shadow: var(--shadow-soft);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
+      text-align: center;
     }
 
     .skill-column:hover {
@@ -406,6 +390,7 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 14px;
+      justify-content: center;
     }
 
     .skill-flip {
@@ -742,6 +727,126 @@
         width: 100%;
       }
     }
+    /* ── Beyond Work: hobby sections ── */
+    .hobby-section {
+      margin-bottom: 52px;
+    }
+
+    .hobby-section-title {
+      font-size: 1.5rem;
+      color: var(--wine-dark);
+      font-weight: 600;
+      margin: 0 0 14px;
+      letter-spacing: -0.01em;
+    }
+
+    .hobby-story {
+      padding: 20px 26px;
+      border-radius: 20px;
+      background: rgba(255, 250, 244, 0.88);
+      border: 1px solid var(--line);
+      margin-bottom: 26px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.75;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .placard-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;
+    }
+
+    .placard {
+      width: 175px;
+      height: 235px;
+      perspective: 900px;
+      cursor: pointer;
+    }
+
+    .placard-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.55s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      border-radius: 18px;
+    }
+
+    .placard.flipped .placard-inner {
+      transform: rotateY(180deg);
+    }
+
+    .placard-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .placard-front {
+      background: var(--panel);
+      border: 1.5px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      text-align: center;
+      transition: box-shadow 0.22s ease, transform 0.22s ease;
+    }
+
+    .placard:hover .placard-front {
+      box-shadow: 0 16px 32px rgba(93, 31, 29, 0.16);
+    }
+
+    .placard-front span {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--wine-dark);
+      line-height: 1.35;
+    }
+
+    .placard-front small {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .placard-back {
+      transform: rotateY(180deg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .placard-back img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+
+    .placard-circa {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-size: 0.68rem;
+      color: rgba(255, 250, 244, 0.88);
+      letter-spacing: 0.08em;
+      pointer-events: none;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.55);
+    }
   </style>
 </head>
 <body>
@@ -768,7 +873,11 @@
           </div>
 
           <div class="hero-side-text hero-side-left">I'm a VLSI design engineer and an amateur baker.</div>
-          <div class="hero-side-text hero-side-right">Also, a PhD student at UC Riverside.</div>
+          <div class="hero-side-text hero-side-right">
+            <span style="font-size:0.7rem; letter-spacing:0.12em; color:var(--muted); display:block; margin-bottom:6px;">CURRENTLY</span>
+            PhD Researcher<br>UC Riverside<br>
+            <span style="font-size:0.85rem; color:var(--muted); margin-top:4px; display:block;">AI-driven RTL-to-GDS automation</span>
+          </div>
           <div class="hero-side-text hero-side-bottom-left">"The most personal is the most creative"</div>
 
           <div class="hero-cta-small">
@@ -797,7 +906,7 @@
 
         <div class="panel">
           <p class="soft">
-            Hello, I’m Arya Ankat, a first-year PhD student in Electrical Engineering at UC Riverside. I began my graduate journey at UCR in Fall 2023 as a master’s student, where I built a strong foundation in VLSI design and circuit reliability. During my master’s, I worked on processor design and studied the impact of aging on circuits by analyzing changes in power density and thermal maps before and after aging. To capture long-term reliability effects, we evaluated a worst-case aging scenario of 10 years. Building on that experience, my PhD work has expanded toward the software side of hardware design. I am currently working on machine learning for hardware, where I developed an agentic flow that can generate hardware code and automate the design flow from RTL-to-GDS.
+            Arya Ankat is a PhD researcher in Electrical Engineering at the University of California, Riverside, specializing at the intersection of hardware design and machine learning. With a master’s degree from UCR as a foundation, his research has spanned VLSI design, processor architecture, and circuit reliability — including the analysis of long-term aging effects on power density and thermal behavior. His current PhD work bridges the hardware-software boundary: he is developing an agentic AI flow capable of generating hardware description code and automating the full RTL-to-GDS design pipeline, advancing the state of intelligent hardware design automation.
           </p>
         </div>
       </div>
@@ -902,58 +1011,51 @@
         <div class="section-head">
           <div class="section-kicker">Skills</div>
           <h2>What I Bring to the Table</h2>
-          <p>Click on a skill to flip it and add a note about where you used it.</p>
+          <p>Flip any card to see where and how each skill was applied.</p>
         </div>
 
         <div class="skills-grid">
           <div class="skill-column">
-            <h3>GPU, Hardware &amp; VLSI</h3>
+            <h3>VLSI &amp; Physical Design</h3>
             <div class="chips">
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">CUDA</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">GPU Architecture</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Parallel Programming</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RISC-V</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RTL Synthesis</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Place &amp; Route</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Floor Planning</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Timing / Power</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">DRC / LVS</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RC Extraction</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RISC-V</div><div class="skill-face skill-back">Architected and implemented a full RISC-V processor in Verilog</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Cortex-M0</div><div class="skill-face skill-back">Built a Cortex-M0 wrapper integrating the ARM M0 core in Verilog</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RTL Synthesis</div><div class="skill-face skill-back">Generated gate-level netlists using Synopsys Design Compiler</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Place &amp; Route</div><div class="skill-face skill-back">Executed P&amp;R on production designs using Synopsys Fusion Compiler</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Floor Planning</div><div class="skill-face skill-back">Defined die area, power domains, and I/O placement in Fusion Compiler</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Static Timing Analysis</div><div class="skill-face skill-back">Closed timing and verified setup/hold margins using PrimeTime</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">DRC / LVS</div><div class="skill-face skill-back">Achieved clean DRC/LVS sign-off in Cadence Innovus</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">GPU Architecture</div><div class="skill-face skill-back">Studied GPU micro-architecture: warps, memory hierarchy, and execution units</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Parallel Programming</div><div class="skill-face skill-back">Implemented high-performance kernels (reduction, GEMM) using CUDA</div></div></div>
             </div>
           </div>
 
           <div class="skill-column">
-            <h3>Tools &amp; Programming</h3>
+            <h3>Tools &amp; Languages</h3>
             <div class="chips">
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Python</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Verilog</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">VHDL</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Tcl</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">C</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">SPICE</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Linux Shell</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Synopsys DC</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">ICC</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Fusion Compiler</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">PrimeTime</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Cadence Innovus</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Virtuoso</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">HSPICE</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Verilog / SystemVerilog</div><div class="skill-face skill-back">Primary HDL for processor design and RTL verification</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Python</div><div class="skill-face skill-back">ML pipelines with PyTorch, NumPy, and Matplotlib; scripting for EDA automation</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Tcl</div><div class="skill-face skill-back">Scripted full design flows in DC Shell, IC Compiler, and Innovus</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">C</div><div class="skill-face skill-back">Bare-metal firmware development for real-time embedded systems</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">HSPICE</div><div class="skill-face skill-back">Circuit-level simulation and FinFET device characterization</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Synopsys Fusion Compiler</div><div class="skill-face skill-back">Automated RTL-to-GDS flow end-to-end via Makefile-driven scripts</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Cadence Virtuoso</div><div class="skill-face skill-back">Schematic and layout design; ESD protection on differential amplifier</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Cadence Innovus</div><div class="skill-face skill-back">Physical implementation and sign-off for custom processor designs</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Linux / Shell</div><div class="skill-face skill-back">Primary development environment; scripting and EDA tool orchestration</div></div></div>
             </div>
           </div>
 
           <div class="skill-column">
-            <h3>AI, ML &amp; Reliability</h3>
+            <h3>AI for Hardware &amp; Reliability</h3>
             <div class="chips">
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">LLM Agents</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RAG / HRAG</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Reinforcement Learning</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Computer Vision</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">PyTorch</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">BTI / HCI Aging</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Electromigration</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Thermal Analysis</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
-              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">2.5D / 3D Integration</div><div class="skill-face skill-back">[ Add note here ]</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">LLM Agents</div><div class="skill-face skill-back">Developed an agentic flow to auto-generate HDL and drive EDA tools end-to-end</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">RAG / HRAG</div><div class="skill-face skill-back">Built a 3-level hierarchical RAG pipeline to improve hardware code generation accuracy</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Reinforcement Learning</div><div class="skill-face skill-back">Implemented DRL-based chip placement using PPO — mirroring Google's Nature paper</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Computer Vision</div><div class="skill-face skill-back">Applied test-time adaptation techniques for distribution-shift robustness</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">BTI Aging</div><div class="skill-face skill-back">Modeled 10-year worst-case NBTI/PBTI degradation across processor circuits</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Power Analysis</div><div class="skill-face skill-back">Generated full-chip power maps across operating conditions for reliability study</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Thermal Analysis</div><div class="skill-face skill-back">Produced thermal maps to correlate hotspot behavior with aging acceleration</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">2.5D / 3D Integration</div><div class="skill-face skill-back">In-depth research on chiplet interconnects, through-silicon vias, and HBM stacking</div></div></div>
             </div>
           </div>
         </div>
@@ -968,11 +1070,93 @@
           <p>A few corners of my life outside engineering.</p>
         </div>
 
-        <div class="hobbies-panel">
-          <div class="hobby-grid">
-            <div class="hobby-card" data-hobby="bakery">Bakery</div>
-            <div class="hobby-card" data-hobby="poems">Poems</div>
-            <div class="hobby-card" data-hobby="drawing">Drawing</div>
+        <!-- Baking -->
+        <div class="hobby-section">
+          <h3 class="hobby-section-title">Baking</h3>
+          <div class="hobby-story">
+            Baking has always been deeply personal to me. Since the fifth grade, I had a quiet dream of running my own bakery someday. When COVID brought everything to a standstill, I finally had the kitchen and the time — and what started as experimentation became a ritual. It's now one of the few places where precision and intuition coexist, not so different from engineering.
+          </div>
+          <div class="placard-grid">
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Blueberry Cheesecake</span></div>
+                <div class="placard-face placard-back"><img src="Baking/Blueberry_cheesecake.jpeg" alt="Blueberry Cheesecake" /><span class="placard-circa">Circa Dec '25</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Banana Bread</span></div>
+                <div class="placard-face placard-back"><img src="Baking/Banana_bread.jpeg" alt="Banana Bread" /><span class="placard-circa">Circa Jan '26</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Chai Cheesecake</span></div>
+                <div class="placard-face placard-back"><img src="Baking/Chai_cheesecake.jpeg" alt="Chai Cheesecake" /><span class="placard-circa">Circa Feb '26</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Chocolate Brownie</span></div>
+                <div class="placard-face placard-back"><img src="Baking/chocolate_Brownie.jpeg" alt="Chocolate Brownie" /><span class="placard-circa">Circa Mar '26</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Writings -->
+        <div class="hobby-section">
+          <h3 class="hobby-section-title">Writings &amp; Poetry</h3>
+          <div class="hobby-story">
+            It started with a blind date — literally. At a college book event called "Blind Date with a Book," each copy was wrapped and described in just five words. The one I chose turned out to be <em>Suspected Poems</em> by Gulzar. That book cracked something open. Since then, writing has been how I process what I can't quite engineer my way through.
+          </div>
+          <div class="placard-grid">
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Kafan</span><small>Published in our college magazine. Writing on 26/11 was quite personal as I grew up in Mumbai.</small></div>
+                <div class="placard-face placard-back"><img src="Writings/Writing_verve.png" alt="Verve" /><span class="placard-circa">Circa May '21</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>The In-Between</span></div>
+                <div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>What is Reality?</span></div>
+                <div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Too much Love kills you</span></div>
+                <div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drawings -->
+        <div class="hobby-section">
+          <h3 class="hobby-section-title">Drawing</h3>
+          <div class="hobby-story">
+            My family is full of artists — and I was somehow the exception. As a kid, I genuinely could not draw. My family would jokingly call me M.F. Husain, one of India's greatest painters, purely as a joke at my expense. Then in undergrad, a close friend dragged me into a creatives committee, and I found my niche. I still don't fully believe I can draw — but apparently it runs in the blood whether you like it or not.
+          </div>
+          <div class="placard-grid">
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Creation of Adam · Hands</span><small>Inspired by Michelangelo's <em>Creation of Adam</em> — one of my favourite works of all time.</small></div>
+                <div class="placard-face placard-back"><img src="Drawings/Creatin of Adam-Hands.jpeg" alt="Creation of Adam - Hands" /><span class="placard-circa">Circa Jun '25</span></div>
+              </div>
+            </div>
+            <div class="placard">
+              <div class="placard-inner">
+                <div class="placard-face placard-front"><span>Katana</span></div>
+                <div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -988,11 +1172,11 @@
 
         <div class="panel contact-card">
           <h3>Contact Me</h3>
-          <p>Email, LinkedIn, and GitHub can go here once you are ready.</p>
+          <p>Feel free to reach out if you have any questions or just want to say hello!</p>
           <div class="contact-links">
-            <a class="btn btn-primary" href="mailto:your-email@example.com">Email</a>
-            <a class="btn btn-primary" href="#">LinkedIn</a>
-            <a class="btn btn-primary" href="#">GitHub</a>
+            <a class="btn btn-primary" href="mailto: aanka003@ucr.edu">Email</a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/arya-ankat-879422255/">LinkedIn</a>
+            <a class="btn btn-primary" href="https://github.com/AAnkat">GitHub</a>
           </div>
         </div>
       </div>
@@ -1003,18 +1187,6 @@
     <div class="container">© 2026 Arya Ankat · Last edited: March 27, 2026</div>
   </footer>
 
-  <div class="modal" id="hobbyModal">
-    <div class="modal-card">
-      <button class="modal-close" id="modalClose">&times;</button>
-      <h3 class="modal-title" id="modalTitle">Hobby</h3>
-      <div class="hobby-description" id="modalDescription">[ Write here about how you got into this hobby. ]</div>
-      <div class="hobby-photo-grid" id="modalPhotos">
-        <div class="hobby-photo">Add photo here</div>
-        <div class="hobby-photo">Add photo here</div>
-        <div class="hobby-photo">Add photo here</div>
-      </div>
-    </div>
-  </div>
 
   <script>
     document.querySelectorAll('.skill-flip').forEach((card) => {
@@ -1023,49 +1195,10 @@
       });
     });
 
-    const modal = document.getElementById('hobbyModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDescription = document.getElementById('modalDescription');
-    const modalPhotos = document.getElementById('modalPhotos');
-    const closeBtn = document.getElementById('modalClose');
-
-    const hobbyContent = {
-      bakery: {
-        title: 'Bakery',
-        description: '[ Write here about how you got into baking. ]'
-      },
-      poems: {
-        title: 'Poems',
-        description: '[ Write here about how you got into writing poems. ]'
-      },
-      drawing: {
-        title: 'Drawing',
-        description: '[ Write here about how you got into drawing. ]'
-      }
-    };
-
-    document.querySelectorAll('.hobby-card').forEach((card) => {
+    document.querySelectorAll('.placard').forEach((card) => {
       card.addEventListener('click', () => {
-        const key = card.dataset.hobby;
-        modalTitle.textContent = hobbyContent[key].title;
-        modalDescription.textContent = hobbyContent[key].description;
-        modalPhotos.innerHTML = `
-          <div class="hobby-photo">Add ${hobbyContent[key].title} photo here</div>
-          <div class="hobby-photo">Add ${hobbyContent[key].title} photo here</div>
-          <div class="hobby-photo">Add ${hobbyContent[key].title} photo here</div>
-        `;
-        modal.classList.add('open');
+        card.classList.toggle('flipped');
       });
-    });
-
-    closeBtn.addEventListener('click', () => {
-      modal.classList.remove('open');
-    });
-
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.remove('open');
-      }
     });
   </script>
 </body>
