@@ -627,6 +627,32 @@
       margin-bottom: 44px;
     }
 
+    /* Enlarged placard overlay for drawings & writings */
+    .placard-enlarged {
+      position: fixed;
+      inset: 0;
+      background: rgba(55, 15, 13, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+      cursor: zoom-out;
+    }
+
+    .placard-enlarged .placard {
+      width: min(344px, 88vw);
+      height: min(460px, 80vh);
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .placard-enlarged .placard .placard-flip-inner,
+    .placard-enlarged .placard .placard-inner {
+      pointer-events: none;
+    }
+
     #beyondModal .hobby-section-title {
       font-size: 1.5rem;
       color: var(--wine-dark);
@@ -958,7 +984,7 @@
 
         <div class="panel">
           <p class="soft">
-            Arya Ankat is a PhD researcher in Electrical Engineering at the University of California, Riverside, specializing at the intersection of hardware design and machine learning. With a master’s degree from UCR as a foundation, his research has spanned VLSI design, processor architecture, and circuit reliability — including the analysis of long-term aging effects on power density and thermal behavior. His current PhD work bridges the hardware-software boundary: he is developing an agentic AI flow capable of generating hardware description code and automating the full RTL-to-GDS design pipeline, advancing the state of intelligent hardware design automation.
+            Arya Ankat is a PhD researcher in Electrical Engineering at the University of California, Riverside, specializing at the intersection of hardware design and machine learning. With a master’s degree from UCR as a foundation, her research has spanned VLSI design, processor architecture, and circuit reliability — including the analysis of long-term aging effects on power density and thermal behavior. Her current PhD work bridges the hardware-software boundary: she is developing an agentic AI flow capable of generating hardware description code and automating the full RTL-to-GDS design pipeline, advancing the state of intelligent hardware design automation.
           </p>
         </div>
       </div>
@@ -1183,10 +1209,10 @@
           It started with a blind date — literally. At a college book event called "Blind Date with a Book," each copy was wrapped and described in just five words. The one I chose turned out to be <em>Suspected Poems</em> by Gulzar. That book cracked something open. Since then, writing has been how I process what I can't quite engineer my way through.
         </div>
         <div class="placard-grid">
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Kafan</span><small>Published in our college magazine. Writing on 26/11 was quite personal as I grew up in Mumbai.</small></div><div class="placard-face placard-back"><img src="Writings/Writing_verve.png" alt="Verve" /><span class="placard-circa">Circa May '21</span></div></div></div>
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>The In-Between</span></div><div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div></div></div>
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>What is Reality?</span></div><div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div></div></div>
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Too much Love kills you</span></div><div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Kafan</span><small>Published in our college magazine. Writing on 26/11 was quite personal as I grew up in Mumbai.</small></div><div class="placard-face placard-back"><img src="Writings/Writing_verve.png" alt="Verve" /><span class="placard-circa">Circa May '21</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>The In-Between</span></div><div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>What is Reality?</span></div><div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Too much Love kills you</span></div><div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
         </div>
       </div>
 
@@ -1197,15 +1223,15 @@
           My family is full of artists — and I was somehow the exception. As a kid, I genuinely could not draw. My family would jokingly call me M.F. Husain, one of India's greatest painters, purely as a joke at my expense. Then in undergrad, a close friend dragged me into a creatives committee, and I found my niche. I still don't fully believe I can draw — but apparently it runs in the blood whether you like it or not.
         </div>
         <div class="placard-grid">
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Creation of Adam · Hands</span><small>Inspired by Michelangelo's <em>Creation of Adam</em> — one of my favourite works of all time.</small></div><div class="placard-face placard-back"><img src="Drawings/Creatin of Adam-Hands.jpeg" alt="Creation of Adam - Hands" /><span class="placard-circa">Circa Jun '25</span></div></div></div>
-          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Katana</span></div><div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Creation of Adam · Hands</span><small>Inspired by Michelangelo's <em>Creation of Adam</em> — one of my favourite works of all time.</small></div><div class="placard-face placard-back"><img src="Drawings/Creatin of Adam-Hands.jpeg" alt="Creation of Adam - Hands" /><span class="placard-circa">Circa Jun '25</span></div></div></div>
+          <div class="placard" data-enlarge="true"><div class="placard-inner"><div class="placard-face placard-front"><span>Katan</span></div><div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
         </div>
       </div>
     </div>
   </div>
 
   <footer class="footer">
-    <div class="container">© 2026 Arya Ankat · Last edited: March 27, 2026</div>
+    <div class="container">© 2026 Arya Ankat · Last edited: April 2, 2026</div>
   </footer>
 
 
@@ -1219,6 +1245,20 @@
     document.querySelectorAll('.placard').forEach((card) => {
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
+
+        // For writings & drawings: also show enlarged overlay
+        if (card.dataset.enlarge === 'true') {
+          const overlay = document.createElement('div');
+          overlay.className = 'placard-enlarged';
+
+          const clone = card.cloneNode(true);
+          // Always show flipped (back) side in the enlarged view
+          clone.classList.add('flipped');
+          overlay.appendChild(clone);
+
+          overlay.addEventListener('click', () => overlay.remove());
+          document.body.appendChild(overlay);
+        }
       });
     });
 
