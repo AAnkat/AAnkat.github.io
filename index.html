@@ -15,7 +15,7 @@
       --brown: #7f5d4a;
       --text: #4a2c25;
       --muted: #87675a;
-      --line: rgba(123, 45, 42, 0.18);
+      --line: rgba(123, 45, 42, 0.26);
       --panel: rgba(255, 250, 244, 0.9);
       --shadow: 0 22px 48px rgba(70, 33, 28, 0.16);
       --shadow-soft: 0 12px 24px rgba(70, 33, 28, 0.12);
@@ -70,9 +70,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(241, 230, 218, 0.92);
+      background: rgba(241, 230, 218, 0.94);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 2px solid rgba(123, 45, 42, 0.35);
     }
 
     .nav-inner {
@@ -287,6 +287,8 @@
 
     .section-head {
       margin-bottom: 18px;
+      border-left: 4px solid var(--wine);
+      padding-left: 16px;
     }
 
     .section-kicker {
@@ -295,6 +297,7 @@
       letter-spacing: 0.08em;
       font-size: 0.76rem;
       margin-bottom: 10px;
+      font-weight: 700;
     }
 
     h2 {
@@ -324,7 +327,7 @@
 
     .panel {
       padding: 28px;
-      border: 1px solid var(--line);
+      border: 1.5px solid rgba(123, 45, 42, 0.28);
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: var(--shadow);
@@ -372,7 +375,8 @@
 
     .skill-column {
       padding: 24px;
-      border: 1px solid var(--line);
+      border: 1.5px solid rgba(123, 45, 42, 0.28);
+      border-top: 4px solid var(--wine);
       border-radius: 24px;
       background: rgba(255, 250, 244, 0.82);
       box-shadow: var(--shadow-soft);
@@ -547,12 +551,15 @@
       text-align: center;
       color: var(--muted);
       font-size: 0.93rem;
+      border-top: 2px solid rgba(123, 45, 42, 0.28);
     }
 
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(74, 44, 37, 0.45);
+      background: rgba(55, 15, 13, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -566,14 +573,14 @@
 
     .modal-card {
       position: relative;
-      width: min(900px, 100%);
-      max-height: 88vh;
+      width: min(1020px, 100%);
+      max-height: 90vh;
       overflow: auto;
       background: rgba(255, 250, 244, 0.98);
-      border: 1px solid var(--line);
+      border: 1.5px solid rgba(123, 45, 42, 0.3);
       border-radius: 30px;
-      box-shadow: 0 26px 60px rgba(70, 33, 28, 0.22);
-      padding: 28px;
+      box-shadow: 0 32px 72px rgba(70, 33, 28, 0.3);
+      padding: 36px 38px;
     }
 
     .modal-close {
@@ -600,6 +607,50 @@
       margin: 0 0 12px;
       font-size: 2rem;
       color: var(--wine-dark);
+    }
+
+    /* Beyond-work modal larger placards */
+    #beyondModal .placard {
+      width: 240px;
+      height: 320px;
+    }
+
+    #beyondModal .placard-front span {
+      font-size: 1.05rem;
+    }
+
+    #beyondModal .placard-front small {
+      font-size: 0.78rem;
+    }
+
+    #beyondModal .hobby-section {
+      margin-bottom: 44px;
+    }
+
+    #beyondModal .hobby-section-title {
+      font-size: 1.5rem;
+      color: var(--wine-dark);
+      font-weight: 600;
+      margin: 0 0 14px;
+      border-left: 4px solid var(--wine);
+      padding-left: 12px;
+    }
+
+    #beyondModal .hobby-story {
+      padding: 18px 22px;
+      border-radius: 16px;
+      background: rgba(123, 45, 42, 0.06);
+      border: 1px solid rgba(123, 45, 42, 0.15);
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.75;
+    }
+
+    #beyondModal .modal-header {
+      border-bottom: 2px solid rgba(123, 45, 42, 0.18);
+      padding-bottom: 18px;
+      margin-bottom: 30px;
     }
 
     .hobby-description {
@@ -1074,7 +1125,7 @@
           <p style="max-width: 520px; margin: 0 auto 28px; color: var(--muted); font-size: 1.05rem; line-height: 1.75;">
             There's more to me than circuits and code. Step inside to see the things I bake, write, and draw — the parts of life that keep the rest of it interesting.
           </p>
-          <a class="btn btn-primary" href="beyond.html" style="font-size: 0.9rem; padding: 14px 28px;">Know More About Me Besides Work</a>
+          <button class="btn btn-primary" onclick="document.getElementById('beyondModal').classList.add('open')" style="font-size: 0.9rem; padding: 14px 28px; cursor: pointer; font-family: inherit;">Know More About Me Besides Work</button>
         </div>
       </div>
     </section>
@@ -1100,6 +1151,59 @@
     </section>
   </main>
 
+  <!-- Beyond Work Modal -->
+  <div class="modal" id="beyondModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="document.getElementById('beyondModal').classList.remove('open')" aria-label="Close">&times;</button>
+
+      <div class="modal-header">
+        <div class="section-kicker" style="border: none; padding: 0;">Besides Work</div>
+        <h2 class="modal-title" style="font-size: clamp(1.6rem, 4vw, 2.8rem); text-transform: uppercase; letter-spacing: -0.03em;">Who I Am Beyond Work</h2>
+        <p style="color: var(--muted); margin: 0;">A few corners of my life outside engineering.</p>
+      </div>
+
+      <!-- Baking -->
+      <div class="hobby-section">
+        <h3 class="hobby-section-title">Baking</h3>
+        <div class="hobby-story">
+          Baking has always been deeply personal to me. Since the fifth grade, I had a quiet dream of running my own bakery someday. When COVID brought everything to a standstill, I finally had the kitchen and the time — and what started as experimentation became a ritual. It's now one of the few places where precision and intuition coexist, not so different from engineering.
+        </div>
+        <div class="placard-grid">
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Blueberry Cheesecake</span></div><div class="placard-face placard-back"><img src="Baking/Blueberry_cheesecake.jpeg" alt="Blueberry Cheesecake" /><span class="placard-circa">Circa Dec '25</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Banana Bread</span></div><div class="placard-face placard-back"><img src="Baking/Banana_bread.jpeg" alt="Banana Bread" /><span class="placard-circa">Circa Jan '26</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Chai Cheesecake</span></div><div class="placard-face placard-back"><img src="Baking/Chai_cheesecake.jpeg" alt="Chai Cheesecake" /><span class="placard-circa">Circa Feb '26</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Chocolate Brownie</span></div><div class="placard-face placard-back"><img src="Baking/chocolate_Brownie.jpeg" alt="Chocolate Brownie" /><span class="placard-circa">Circa Mar '26</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- Writings -->
+      <div class="hobby-section">
+        <h3 class="hobby-section-title">Writings &amp; Poetry</h3>
+        <div class="hobby-story">
+          It started with a blind date — literally. At a college book event called "Blind Date with a Book," each copy was wrapped and described in just five words. The one I chose turned out to be <em>Suspected Poems</em> by Gulzar. That book cracked something open. Since then, writing has been how I process what I can't quite engineer my way through.
+        </div>
+        <div class="placard-grid">
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Kafan</span><small>Published in our college magazine. Writing on 26/11 was quite personal as I grew up in Mumbai.</small></div><div class="placard-face placard-back"><img src="Writings/Writing_verve.png" alt="Verve" /><span class="placard-circa">Circa May '21</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>The In-Between</span></div><div class="placard-face placard-back"><img src="Writings/Writing_inbetw.jpeg" alt="In Between" /><span class="placard-circa">Circa Jul '25</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>What is Reality?</span></div><div class="placard-face placard-back"><img src="Writings/Writing_reality.jpeg" alt="Reality" /><span class="placard-circa">Circa Oct '25</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Too much Love kills you</span></div><div class="placard-face placard-back"><img src="Writings/Writing_TM.jpeg" alt="TM" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+        </div>
+      </div>
+
+      <!-- Drawings -->
+      <div class="hobby-section">
+        <h3 class="hobby-section-title">Drawing</h3>
+        <div class="hobby-story">
+          My family is full of artists — and I was somehow the exception. As a kid, I genuinely could not draw. My family would jokingly call me M.F. Husain, one of India's greatest painters, purely as a joke at my expense. Then in undergrad, a close friend dragged me into a creatives committee, and I found my niche. I still don't fully believe I can draw — but apparently it runs in the blood whether you like it or not.
+        </div>
+        <div class="placard-grid">
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Creation of Adam · Hands</span><small>Inspired by Michelangelo's <em>Creation of Adam</em> — one of my favourite works of all time.</small></div><div class="placard-face placard-back"><img src="Drawings/Creatin of Adam-Hands.jpeg" alt="Creation of Adam - Hands" /><span class="placard-circa">Circa Jun '25</span></div></div></div>
+          <div class="placard"><div class="placard-inner"><div class="placard-face placard-front"><span>Katana</span></div><div class="placard-face placard-back"><img src="Drawings/katana.jpeg" alt="Katana" /><span class="placard-circa">Circa Nov '25</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container">© 2026 Arya Ankat · Last edited: March 27, 2026</div>
   </footer>
@@ -1116,6 +1220,13 @@
       card.addEventListener('click', () => {
         card.classList.toggle('flipped');
       });
+    });
+
+    // Close beyond modal when clicking the backdrop
+    document.getElementById('beyondModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('open');
+      }
     });
   </script>
 </body>
