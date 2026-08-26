@@ -1011,7 +1011,7 @@
 
         <div class="panel">
           <p class="soft">
-            Arya Ankat is a PhD researcher in Electrical Engineering at the University of California, Riverside, specializing at the intersection of hardware design and machine learning. With a master’s degree from UCR as a foundation, her research has spanned VLSI design, processor architecture, and circuit reliability — including the analysis of long-term aging effects on power density and thermal behavior. Her current PhD work bridges the hardware-software boundary: she is developing an agentic AI flow capable of generating hardware description code and automating the full RTL-to-GDS design pipeline, advancing the state of intelligent hardware design automation.
+            Arya Ankat is a PhD researcher in Electrical Engineering at the University of California, Riverside, working at the intersection of hardware design and machine learning. With a master's degree from UCR as a foundation, her research has spanned VLSI design, processor architecture, and circuit reliability — including the analysis of long-term aging effects on power density and thermal behavior. Her current PhD work bridges the hardware-software boundary: she is developing an agentic AI flow capable of generating hardware description code and automating the full RTL-to-GDS design pipeline, advancing the state of intelligent hardware design automation.
           </p>
         </div>
       </div>
@@ -1058,7 +1058,7 @@
         <div class="experience-layout">
           <div class="panel">
             <div class="timeline-item">
-              <h3>Graduate Student Researcher (PhD) | VSC-Lab, UC Riverside | Sep 2024 – Present</h3>
+              <h3>Graduate Student Researcher (PhD) | VSC-Lab, UC Riverside | Sep 2025 – Present</h3>
               <ul>
                 <li>Built an Automated Multi-Agent SoC Design framework for hardware IP code generation using hierarchical retrieval-augmented generation HRAG.</li>
                 <li>Automated the RTL-to-GDS flow through Synopsys Fusion Compiler with Gemini-based agent orchestration, and explored GPU-aware physical design as a future research direction.</li>
@@ -1066,7 +1066,7 @@
             </div>
 
             <div class="timeline-item">
-              <h3>Graduate Student Researcher (M.S. Thesis) | VSC-Lab, UC Riverside | Sep 2023 – Aug 2025</h3>
+              <h3>Graduate Student Researcher (M.S. Thesis) | VSC-Lab, UC Riverside | Sep 2024 – Aug 2025</h3>
               <ul>
                 <li>Designed a RISC-V and Cortex-M0 processors and carried out RTL synthesis, layout, and power analysis using Synopsys DC Compiler, Innovus, PrimePower and PrimeTime.</li>
                 <li>Studied BTI aging effects by comparing aging and non-aging across ARM Cortex-M0 &amp; RiscV circuits.</li>
@@ -1089,6 +1089,13 @@
                 <li>Helped maintain course logistics and student support throughout the term.</li>
               </ul>
             </div>
+
+            <div class="timeline-item">
+              <h3>3D IC Design Automation | VSC-Lab, UC Riverside | Present</h3>
+              <ul>
+                <li>Automating 3D IC flow using Cadence's Integrity 3D-IC. Currently working on it.</li>
+              </ul>
+            </div>
           </div>
 
           <div class="panel">
@@ -1104,7 +1111,7 @@
 
             <div class="resume-box">
               <h3>Currently Interested In</h3>
-              <p>Physical design, Heterogeneous Integration-2.5D/3D, GPU architecture &amp; parallel computing, hardware-software co-design, and agentic SoC design workflows.</p>
+              <p>Physical design, Heterogeneous Integration-2.5D/3D, GPU architecture &amp; parallel computing, hardware-software co-design, and agentic SoC design workflows. Arya is also drawn to data-driven, optimization-based sensing and monitoring for power systems and smart grid applications — extending her reliability and power/thermal analysis background toward measurement-driven grid intelligence, such as sensor-based state estimation and agentic ML pipelines for grid data analytics.</p>
             </div>
           </div>
         </div>
@@ -1161,6 +1168,8 @@
               <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Power Analysis</div><div class="skill-face skill-back">Generated full-chip power maps across operating conditions for reliability study</div></div></div>
               <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Thermal Analysis</div><div class="skill-face skill-back">Produced thermal maps to correlate hotspot behavior with aging acceleration</div></div></div>
               <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">2.5D / 3D Integration</div><div class="skill-face skill-back">In-depth research on chiplet interconnects, through-silicon vias, and HBM stacking</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Sensing &amp; State Estimation</div><div class="skill-face skill-back">Interested in applying measurement-driven, optimization-based sensing to power systems and smart grid monitoring</div></div></div>
+              <div class="skill-flip"><div class="skill-flip-inner"><div class="skill-face skill-front">Data-Driven Grid Analytics</div><div class="skill-face skill-back">Exploring agentic ML pipelines for data-driven grid analytics, extending her reliability and power/thermal analysis background</div></div></div>
             </div>
           </div>
         </div>
@@ -1195,7 +1204,7 @@
           <h3>Contact Me</h3>
           <p>Feel free to reach out if you have any questions or just want to say hello!</p>
           <div class="contact-links">
-            <a class="btn btn-primary" href="mailto: aanka003@ucr.edu">Email</a>
+            <a class="btn btn-primary" href="#" onclick="document.getElementById('emailModal').classList.add('open'); return false;">Email</a>
             <a class="btn btn-primary" href="https://www.linkedin.com/in/arya-ankat-879422255/">LinkedIn</a>
             <a class="btn btn-primary" href="https://github.com/AAnkat">GitHub</a>
           </div>
@@ -1257,6 +1266,17 @@
     </div>
   </div>
 
+  <!-- Email Modal -->
+  <div class="modal" id="emailModal">
+    <div class="modal-card" style="max-width: 420px; text-align: center; padding: 40px 34px;">
+      <button class="modal-close" onclick="document.getElementById('emailModal').classList.remove('open')" aria-label="Close">&times;</button>
+      <h2 class="modal-title" style="font-size: 1.6rem;">Get In Touch</h2>
+      <p style="color: var(--muted); margin: 0 0 20px;">Click the address below to copy it.</p>
+      <a href="mailto:aanka003@ucr.edu" id="emailCopyLink" style="display:inline-block; font-size: 1.05rem; font-weight: 700; color: var(--wine); border-bottom: 1.5px dashed var(--wine); padding-bottom: 2px;">aanka003@ucr.edu</a>
+      <div id="emailCopiedNote" style="margin-top: 14px; font-size: 0.85rem; color: var(--muted); opacity: 0; transition: opacity 0.2s ease;">Copied to clipboard!</div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="container">© 2026 Arya Ankat · Last edited: April 2, 2026</div>
   </footer>
@@ -1302,6 +1322,35 @@
     document.getElementById('beyondModal').addEventListener('click', (e) => {
       if (e.target === e.currentTarget) {
         e.currentTarget.classList.remove('open');
+      }
+    });
+
+    // Close email modal when clicking the backdrop
+    document.getElementById('emailModal').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.classList.remove('open');
+      }
+    });
+
+    // Copy email address to clipboard when clicked
+    document.getElementById('emailCopyLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      const email = 'aanka003@ucr.edu';
+      const note = document.getElementById('emailCopiedNote');
+      const showCopied = () => {
+        note.style.opacity = '1';
+        setTimeout(() => { note.style.opacity = '0'; }, 1800);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(showCopied).catch(showCopied);
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = email;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showCopied();
       }
     });
   </script>
